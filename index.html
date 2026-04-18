@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnoMango | Solution, ServiceNow & AI Consulting Experts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- Color Palette --- */
+        :root {
+            --primary-dark: #1F2837; /* Dark Blue/Gray for professionalism */
+            --secondary-accent: #FFC300; /* Mango Yellow/Orange for contrast */
+            --text-light: #f4f4f4;
+            --text-dark: #333333;
+            --light-bg: #FFFFFF;
+            --service-bg: #f9f9f9;
+        }
+
+        /* --- Global Styles --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-accent);
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 15px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+    	   height: auto;          /* Let the image scale proportionally */
+           max-height: 50px;     /* Set a larger cap for logo height */
+           width: auto;           /* Maintain aspect ratio */
+           max-width: 250px;      /* Optional: prevent it from growing too wide */
+		}        
+
+        nav a {
+            color: var(--text-light);
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-accent);
+        }
+
+        /* --- Hero Section (Opacity lowered to 0.7 for better image visibility) --- */
+        #hero {
+            background: linear-gradient(rgba(31, 40, 55, 0.7), rgba(31, 40, 55, 0.7)), 
+                        url('images/hero-bg.png') no-repeat center center/cover; /* Ensure you download the AI-themed image as hero-bg.png */
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        #hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+        }
+
+        #hero p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary-accent);
+            color: var(--primary-dark);
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #FFD966;
+        }
+
+        /* --- Services Section (4-Card Grid Styling) --- */
+        #services {
+            padding: 80px 0;
+            background-color: var(--service-bg);
+            text-align: center;
+        }
+
+        #services h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .service-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 50px;
+            gap: 20px; 
+        }
+
+        .service-card {
+            background: var(--light-bg);
+            padding: 30px;
+            flex: 1 1 calc(25% - 20px); /* 4 cards per row on large screens */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            text-align: left;
+            border-top: 4px solid var(--secondary-accent);
+            transition: transform 0.3s;
+        }
+        
+        .service-card i {
+            font-size: 2.5em;
+            color: var(--secondary-accent);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        /* --- ServiceNow Spotlight Section (Background Layout) --- */
+        #servicenow {
+            background: linear-gradient(rgba(31, 40, 55, 0.7), rgba(31, 40, 55, 0.7)),
+                        url('images/servicenow-bg.png') no-repeat right center/cover; /* Changed to 'right center' to push visual to the right */
+            padding: 100px 0;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        #servicenow .container {
+            display: flex;
+            justify-content: flex-start; /* Ensure text is pushed left */
+        }
+
+        #servicenow .text-content {
+            flex: 0 1 50%; /* Text box occupies the left 50% */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            color: var(--text-light);
+        }
+
+        #servicenow h2 {
+            font-size: 2.5em;
+            color: var(--primary-light);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary-accent);
+            padding-left: 15px;
+        }
+
+        #servicenow ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        #servicenow ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        #servicenow ul li:last-child {
+            border-bottom: none;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1200px) {
+            .service-card {
+                flex: 1 1 calc(50% - 10px); /* 2 cards per row */
+            }
+        }
+
+        @media (max-width: 992px) {
+            #servicenow .text-content {
+                flex: 0 1 80%; 
+            }
+            #servicenow {
+                /* Center the background image on smaller screens when text widens */
+                background-position: center center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .logo {
+                width: 100%;
+                justify-content: center;
+            }
+            .service-card {
+                flex: 1 1 100%; /* 1 card per row on mobile */
+            }
+            #servicenow .container {
+                justify-content: center;
+            }
+            #servicenow .text-content {
+                flex: 0 1 95%;
+                padding: 30px;
+            }
+	    .logo img {
+        	max-height: 80px;
+    	    }
+        }
+		
+		.modal-overlay {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.7);
+
+			justify-content: center;
+			align-items: center;
+
+			padding: 20px;
+			box-sizing: border-box;
+		}
+
+		.modal-overlay.active {
+			display: flex;
+		}
+
+		.modal-content {
+			background: white;
+			padding: 30px;
+			border-radius: 8px;
+			width: 100%;
+			max-width: 500px;
+			box-sizing: border-box;
+		}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="UnoMangoLogo.png" alt="UnoMango">
+            </div>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#servicenow">ServiceNow</a>
+                <a href="#" onclick="openForm()">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Driving Digital Success Through Expert Consulting and AI.</h1>
+            <p>From Solution Planning and Pre-sales to ServiceNow and modern Automation.</p>
+            <a href="#" class="cta-button" onclick="openForm()">Start Your Project Today</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Core Expertise</h2>
+            <p>We combine deep domain knowledge with a results-driven approach to solve your toughest business challenges.</p>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-lightbulb"></i> 
+                    <h3>Solution Consulting</h3>
+                    <p>We design robust, end-to-end digital transformation strategies. Get a clear roadmap and architecture that aligns technology with core business outcomes.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-handshake"></i> 
+                    <h3>Pre-sales Consulting</h3>
+                    <p>Elevate your sales pipeline with compelling, technically sound solutions. We equip your sales team with expert product demonstrations, proof-of-concepts, and value-based narratives.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-cloud"></i> 
+                    <h3>ServiceNow Solutions</h3>
+                    <p>Maximize your investment in the Now Platform. We offer full-lifecycle consulting, implementation, optimization, and managed services across all major product suites.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-robot"></i> 
+                    <h3>AI & Automation</h3>
+                    <p>Develop next-generation services using AI. This includes intelligent Chatbot Solutions, advanced Workflow Automation, and predictive analytics for process optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicenow">
+        <div class="container">
+            <div class="text-content">
+                <h2>Your Trusted ServiceNow Consultant</h2>
+                <p>Our focus on the ServiceNow platform ensures you receive highly specialized, certified expertise, driving automation and efficiency across your enterprise.</p>
+                <ul>
+                    <li>Implementation: Fast, reliable deployment of new modules.</li>
+                    <li>Platform Optimization: Audits and tuning to boost performance and adoption.</li>
+                    <li>Custom Development: Building unique applications on the Now Platform.</li>
+                    <li>Managed Services: Ongoing support and platform evolution.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> UnoMango. All Rights Reserved.</p>
+            <p>Specializing in Solution, Pre-sales, ServiceNow, and AI Consulting.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to automatically set the current year in the footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();   
+		
+		function openForm() {
+			document.getElementById('contactFormModal').classList.add('active');
+		}
+
+		function closeForm() {
+			document.getElementById('contactFormModal').classList.remove('active');
+		}
+
+	</script>
+
+    <div id="contactFormModal" class="modal-overlay">
+		<div class="modal-content">
+			<h2>Start Your Project</h2>
+			
+			<form action="https://formsubmit.co/adi@unomango.com" method="POST">
+				
+				<input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:10px; margin:10px 0;">
+				
+				<input type="email" name="email" placeholder="Your Email" required style="width:100%; padding:10px; margin:10px 0;">
+				
+				<input type="text" name="company" placeholder="Company Name" style="width:100%; padding:10px; margin:10px 0;">
+				
+				<textarea name="message" placeholder="Project Details" required style="width:100%; padding:10px; margin:10px 0;"></textarea>
+				
+				<!-- Optional settings -->
+				<input type="hidden" name="_subject" value="New Project Inquiry - UnoMango">
+				<input type="hidden" name="_captcha" value="false">
+				
+				<button type="submit" class="cta-button">Submit</button>
+				<button type="button" onclick="closeForm()" style="margin-left:10px;">Cancel</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
