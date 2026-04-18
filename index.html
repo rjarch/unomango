@@ -258,33 +258,81 @@
     	    }
         }
 		
+		/* --- Updated Modal Styling --- */
+		.modal-content {
+			background: #ffffff;
+			padding: 40px;
+			border-radius: 12px;
+			width: 90%;
+			max-width: 500px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+			box-sizing: border-box;
+		}
+
+		.modal-content h2 {
+			color: var(--primary-dark);
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		/* Stylish Form Inputs */
+		.modal-content input, 
+		.modal-content textarea {
+			width: 100%;
+			padding: 12px;
+			margin: 10px 0;
+			border: 1px solid #ddd;
+			border-radius: 6px;
+			font-family: 'Poppins', sans-serif;
+			box-sizing: border-box; /* Ensures padding doesn't break layout */
+			transition: border-color 0.3s;
+		}
+
+		.modal-content input:focus, 
+		.modal-content textarea:focus {
+			border-color: var(--secondary-accent);
+			outline: none;
+		}
+		
+		/* 1. Ensure the default state is hidden */
 		.modal-overlay {
-			display: none;
+			display: none; 
 			position: fixed;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
 			background: rgba(0,0,0,0.7);
-
+			z-index: 1000; /* Keeps it on top of everything */
 			justify-content: center;
 			align-items: center;
-
-			padding: 20px;
-			box-sizing: border-box;
 		}
 
+		/* 2. When the 'active' class is added, change display to flex */
 		.modal-overlay.active {
-			display: flex;
+			display: flex; 
 		}
 
-		.modal-content {
-			background: white;
-			padding: 30px;
-			border-radius: 8px;
-			width: 100%;
-			max-width: 500px;
-			box-sizing: border-box;
+		/* Button Container for spacing */
+		.form-actions {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 15px;
+		}
+
+		.cancel-button {
+			background: transparent;
+			border: none;
+			color: #666;
+			cursor: pointer;
+			font-weight: 600;
+			font-size: 0.9em;
+		}
+
+		.cancel-button:hover {
+			color: #333;
+			text-decoration: underline;
 		}
     </style>
 </head>
@@ -385,21 +433,23 @@
 			<h2>Start Your Project</h2>
 			
 			<form action="https://formsubmit.co/adi@unomango.com" method="POST">
+    
+				<input type="text" name="name" placeholder="Your Name" required>
 				
-				<input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:10px; margin:10px 0;">
+				<input type="email" name="email" placeholder="Your Email" required>
 				
-				<input type="email" name="email" placeholder="Your Email" required style="width:100%; padding:10px; margin:10px 0;">
+				<input type="text" name="company" placeholder="Company Name">
 				
-				<input type="text" name="company" placeholder="Company Name" style="width:100%; padding:10px; margin:10px 0;">
+				<textarea name="message" rows="4" placeholder="Project Details" required></textarea>
 				
-				<textarea name="message" placeholder="Project Details" required style="width:100%; padding:10px; margin:10px 0;"></textarea>
-				
-				<!-- Optional settings -->
 				<input type="hidden" name="_subject" value="New Project Inquiry - UnoMango">
 				<input type="hidden" name="_captcha" value="false">
+				<input type="hidden" name="_next" value="https://unomango.com/thankyou.html">
 				
-				<button type="submit" class="cta-button">Submit</button>
-				<button type="button" onclick="closeForm()" style="margin-left:10px;">Cancel</button>
+				<div class="form-actions">
+					<button type="submit" class="cta-button">Submit</button>
+					<button type="button" class="cancel-button" onclick="closeForm()">Cancel</button>
+				</div>
 			</form>
 		</div>
 	</div>
